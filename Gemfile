@@ -5,7 +5,7 @@ gem 'rails', '3.2.12'
 gem 'mongoid'
 gem 'jquery-rails'
 
-gem 'activeadmin-mongoid'
+gem 'activeadmin-mongoid', :git => 'git://github.com/elia/activeadmin-mongoid.git'
 gem 'devise'
 
 group :development, :test do
