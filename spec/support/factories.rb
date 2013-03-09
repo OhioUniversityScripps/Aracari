@@ -4,4 +4,8 @@ FactoryGirl.define do
     password 'secret123'
     password_confirmation 'secret123'
   end
+  
+  factory :record do
+    
+  end
 end
