@@ -6,6 +6,8 @@ FactoryGirl.define do
   end
   
   factory :record do
-    
+    asset_id { Faker::Lorem.words(3) }
+    notes { Faker::Lorem.paragraph }
+    misc { "" }
   end
 end
