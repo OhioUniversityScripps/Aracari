@@ -26,4 +26,8 @@ describe User do
     user.should_not be_valid
   end
   
+  it "should match password and password_confirmation" do
+    build(:user, :password => "abcd1234", :password_confirmation => "1234abcd").should_not be_valid
+  end
+  
 end
