@@ -16,7 +16,7 @@ end
 group  :test do
   gem 'factory_girl_rails'
   gem 'mongoid-rspec'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'capybara'
   gem 'database_cleaner'
 end
