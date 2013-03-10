@@ -3,6 +3,8 @@ Aracari::Application.routes.draw do
 
   devise_for :users, ActiveAdmin::Devise.config
 
+  root to: 'admin/dashboard#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
