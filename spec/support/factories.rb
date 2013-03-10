@@ -10,4 +10,8 @@ FactoryGirl.define do
     notes { Faker::Lorem.paragraph }
     misc { "" }
   end
+  
+  factory :image do
+    uploader { File.open(File.join(Rails.root, 'spec', 'support', 'images', 'image.png')) }
+  end
 end
