@@ -1,4 +1,7 @@
 ActiveAdmin.register Record do
+  
+  config.filters = false
+  
   index do
     column "Legacy Asset ID", :legacy_asset_id
     column :further_review

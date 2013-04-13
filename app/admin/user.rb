@@ -1,4 +1,6 @@
-ActiveAdmin.register User do     
+ActiveAdmin.register User do
+  config.filters = false
+  
   index do                            
     column :email                     
     column :current_sign_in_at        
