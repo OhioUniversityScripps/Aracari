@@ -7,14 +7,8 @@ describe Record do
     record.should be_valid
   end
   
-  it "should support dynamic fields" do
-    expect { record.pest }.to raise_error NoMethodError
-    
-    record[:pest] = true
-    record[:pest].should be_true
-    
-    record.write_attribute(:speed, "33 RPM").should be_true
-    record.read_attribute(:speed).should be_true
+  it "should not support dynamic fields" do
+    expect { record.new_attribute }.to raise_error NoMethodError
   end
   
 end

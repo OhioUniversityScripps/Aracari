@@ -6,9 +6,9 @@ FactoryGirl.define do
   end
   
   factory :record do
-    asset_id { Faker::Lorem.words(3) }
+    legacy_asset_id { Faker::Lorem.words(3) }
     notes { Faker::Lorem.paragraph }
-    misc { "" }
+    condition_notes { Faker::Lorem.paragraph }
   end
   
   factory :image do
