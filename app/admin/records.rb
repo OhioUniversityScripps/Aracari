@@ -1,5 +1,4 @@
 ActiveAdmin.register Record do
-  
   config.filters = false
   
   index do
