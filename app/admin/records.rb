@@ -1,16 +1,16 @@
 ActiveAdmin.register Record do
   index do
-    column :asset_id
+    column "Legacy Asset ID", :legacy_asset_id
+    column :further_review
     column :notes
-    column :misc
     default_actions
   end
   
   form do |f|
     f.inputs "Admin Details" do
-      f.input :asset_id
+      f.input :legacy_asset_id
+      f.input :further_review
       f.input :notes
-      f.input :misc
     end                               
     f.actions                         
   end
