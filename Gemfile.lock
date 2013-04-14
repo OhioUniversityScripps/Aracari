@@ -218,7 +218,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   jquery-rails
-  paperclip
+  paperclip (~> 3.0)
   pg
   rails (= 3.2.13)
   rspec-rails

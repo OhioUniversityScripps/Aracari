@@ -4,7 +4,7 @@ gem 'rails', '3.2.13'
 
 gem 'jquery-rails'
 
-gem 'paperclip'
+gem 'paperclip', "~> 3.0"
 
 gem 'activeadmin'
 gem 'devise'

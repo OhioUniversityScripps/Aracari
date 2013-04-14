@@ -1,5 +1,5 @@
 class CreateRecords < ActiveRecord::Migration
-  def change
+  def up
     create_table :records do |t|
 
       t.string :legacy_asset_id
@@ -83,5 +83,9 @@ class CreateRecords < ActiveRecord::Migration
       
       t.timestamps
     end
+  end
+  
+  def down
+    drop_table :records
   end
 end

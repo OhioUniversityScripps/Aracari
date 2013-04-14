@@ -6,6 +6,6 @@ class CreateUserTable < ActiveRecord::Migration
   end
 
   def down
-    drop_table :admin_notes
+    drop_table :users
   end
 end
