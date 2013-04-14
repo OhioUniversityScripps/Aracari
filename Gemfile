@@ -2,25 +2,27 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-gem 'mongoid'
 gem 'jquery-rails'
-gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
-gem 'activeadmin-mongoid', :git => 'git://github.com/elia/activeadmin-mongoid.git'
+gem 'paperclip'
+
+gem 'activeadmin'
 gem 'devise'
 
 group :development, :test do
-    gem 'rspec-rails'
-    gem 'bson_ext'
+  gem 'rspec-rails'
+  gem 'sqlite3'
 end
 
 group  :test do
   gem 'factory_girl_rails'
-  gem 'mongoid-rspec'
   gem 'cucumber-rails', :require => false
   gem 'capybara'
-  gem 'database_cleaner'
   gem 'faker'
+end
+
+group :production do
+  gem 'pg'
 end
 
 # Gems used only for assets and not required
