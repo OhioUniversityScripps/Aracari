@@ -8,6 +8,8 @@ gem 'paperclip', "~> 3.0"
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
+# gem 'rubyzip'
+
 
 group :development, :test do
   gem 'rspec-rails'
