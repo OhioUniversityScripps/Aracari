@@ -7,7 +7,7 @@ ActiveAdmin.register Import do
     default_actions
   end
   
-  form :html => { :enctype => "multipart/form-data" } do |f|
+  form :html => {:multipart => true} do |f|
     f.inputs "Content" do
       f.input :archive, as: :file
     end

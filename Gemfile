@@ -6,7 +6,7 @@ gem 'jquery-rails'
 
 gem 'paperclip', "~> 3.0"
 
-gem 'activeadmin'
+gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
 
 group :development, :test do
