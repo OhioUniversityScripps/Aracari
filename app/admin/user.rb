@@ -1,5 +1,6 @@
 ActiveAdmin.register User do
   
+  
   index do
     column :email
     column :current_sign_in_at
@@ -11,7 +12,7 @@ ActiveAdmin.register User do
   filter :email
 
   form do |f|
-    f.inputs "Admin Details" do
+    f.inputs "User Details" do
       f.input :email
       f.input :password
       f.input :password_confirmation

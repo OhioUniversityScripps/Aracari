@@ -1,15 +1,14 @@
 ActiveAdmin.register Import do
-
+  config.filters = false
+  
   index do
-    column :uploader_url
-    column :created_at
     
     default_actions
   end
   
   form do |f|
     f.inputs "Content" do
-      f.input :uploader, as: :file
+      f.input :archive, as: :file
     end
     
     f.actions
