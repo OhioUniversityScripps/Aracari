@@ -1,5 +1,4 @@
 ActiveAdmin.register Record do
-  config.filters = false
   
   index do
     column "Legacy Asset ID", :legacy_asset_id
@@ -44,7 +43,6 @@ ActiveAdmin.register Record do
       f.input :tape_noise_reduction, label: "Tape Noise Reduction"
     end
     
-    # Reel Condition
     f.inputs "Reel Condition" do
         # Column One
         f.input :popped_strands, as: :boolean, label: "Popped Strands"
@@ -83,7 +81,6 @@ ActiveAdmin.register Record do
     end
     
     f.inputs "Record/Cassette Condition" do
-      # Record/Cassette Condition
       f.input :record_cassette_cracks, as: :boolean, label: "Cracks"
       f.input :record_cassette_delamination, as: :boolean, label: "Delamination"
       f.input :record_cassette_scratches, as: :boolean, label: "Scratches"

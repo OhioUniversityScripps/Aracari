@@ -1,12 +1,13 @@
 ActiveAdmin.register Import do
-  config.filters = false
   
   index do
+    column :archive
+    column :created_at
     
     default_actions
   end
   
-  form do |f|
+  form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Content" do
       f.input :archive, as: :file
     end
