@@ -32,8 +32,11 @@ describe Record do
       Record.first.images.count.should be(4)
     end
     
-    pending "should not error out on bad example" do
+    it "should not error out on bad example" do
+      data = File.read(Rails.root + "spec/support/record_parse/bad_example.xml")
       
+      expect { Record.parse(data) }.to_not raise_error
+      Record.count.should be(0)
     end
   end
 end
