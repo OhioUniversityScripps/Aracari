@@ -14,6 +14,7 @@ gem 'devise'
 group :development, :test do
   gem 'rspec-rails'
   gem 'sqlite3'
+  gem 'pry'
 end
 
 group  :test do
