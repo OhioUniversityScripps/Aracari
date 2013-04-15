@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <form name="Analog Assessment">
 	<record name="Music Tape 767 Pt.E V.6 Morton Series">
-		<field name="Legacy Assest ID">Music Tape 767 Pt.E V.6</field>
+		<field name="Legacy Asset ID">Music Tape 767 Pt.E V.6</field>
 		<field name="Assessors"></field>
 		<field name="Title">Morton Series </field>
 		<field name="Collection">NCN</field>
