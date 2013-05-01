@@ -17,7 +17,7 @@ describe FormConnectParser do
     expect { FormConnectParser.new('/tmp/test.bad') }.to raise_error FormConnectParseError
   end
   
-  it "should parse data" do
+  describe "should parse data" do
     let(:example_file) { Rails.root + 'spec/support/record_parse/example.xml' }
     let(:bad_example_file) { Rails.root + 'spec/support/record_parse/example.xml' }
     
@@ -40,9 +40,7 @@ describe FormConnectParser do
     end
     
     it "should not error out on bad example" do
-      FormConnectParser.new(bad_example_file)
-      
-      expect { FormConnectParser.parse(data) }.to_not raise_error
+      expect { FormConnectParser.new(bad_example_file) }.to_not raise_error
       
       Record.count.should be(0)
     end

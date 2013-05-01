@@ -14,7 +14,7 @@ class FormConnectParser
     
   def parse
     
-    doc = Nokogiri.XML(filename)
+    doc = Nokogiri.XML(xml)
     
     # loop through each record
     doc.xpath('//record').each do |record|
@@ -34,18 +34,16 @@ class FormConnectParser
         end
       end
       
+      # save
       record_builder.save!
+      # binding.pry
     end
     
   end
   
-  def filename
-    @filename
+  def unzip!
+    
   end
-  
-  # def unzip!
-  #   
-  # end
 end
 
 class FormConnectParseError < StandardError
