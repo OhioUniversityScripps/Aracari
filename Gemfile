@@ -31,6 +31,7 @@ group  :test do
   gem 'cucumber-rails', :require => false
   gem 'capybara'
   gem 'faker'
+  gem 'database_cleaner'
 end
 
 group :production do
