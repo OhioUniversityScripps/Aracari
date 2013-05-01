@@ -11,6 +11,8 @@ gem 'devise'
 # gem 'rubyzip'
 
 group :development do
+  gem 'ruby_gntp'
+  
   gem 'guard'
   gem 'guard-rspec'
   gem 'rb-fsevent', :require => false
