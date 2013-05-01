@@ -10,11 +10,18 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
 # gem 'rubyzip'
 
+group :development do
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'rb-fsevent', :require => false
+  
+  # gem 'pry'
+  # gem 'pry-remote'
+end
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'sqlite3'
-  gem 'pry'
 end
 
 group  :test do
