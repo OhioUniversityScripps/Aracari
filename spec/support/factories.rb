@@ -12,7 +12,7 @@ FactoryGirl.define do
   end
   
   factory :image do
-    uploader { File.open(File.join(Rails.root, 'spec', 'support', 'images', 'image.png')) }
+    file { fixture_file_upload(Rails.root.join('spec', 'support', 'images', 'image.png'), 'image/png') }
   end
   
   factory :import do

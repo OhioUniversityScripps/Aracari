@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130415221713) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+    t.integer  "record_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end
