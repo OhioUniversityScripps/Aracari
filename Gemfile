@@ -19,6 +19,7 @@ group :development do
   
   # gem 'pry'
   # gem 'pry-remote'
+  gem 'pry-rails'
 end
 
 group :development, :test do
