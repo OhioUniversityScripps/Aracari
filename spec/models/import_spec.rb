@@ -1,5 +1,10 @@
 require 'spec_helper'
 
 describe Import do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should require a file" do
+    import = build(:import)
+    import.archive = nil
+    import.valid?.should be(false)
+    import.errors.messages.should include(archive: ["must be attached"])
+  end
 end

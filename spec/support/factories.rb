@@ -14,4 +14,8 @@ FactoryGirl.define do
   factory :image do
     uploader { File.open(File.join(Rails.root, 'spec', 'support', 'images', 'image.png')) }
   end
+  
+  factory :import do
+    
+  end
 end
