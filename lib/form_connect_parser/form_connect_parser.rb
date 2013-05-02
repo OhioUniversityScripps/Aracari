@@ -1,5 +1,7 @@
+require 'csv'
+
 class FormConnectParser
-  ACCEPTED_FORMATS = [".xml", ".zip"]
+  ACCEPTED_FORMATS = [".csv", ".zip"]
   
   def initialize(filename)
     @filename = filename
@@ -12,28 +14,25 @@ class FormConnectParser
     FormConnectParser.new(filename).parse
   end
     
-  def parse
-    
-    doc = Nokogiri.XML(filename)
-    
-    # loop through each record
-    doc.xpath('//record').each do |record|
+  def parse       
+    CSV.new(open(filename), :headers => true).each do |record|
       # build a new record
       record_builder = Record.new
             
-      record.xpath('///field').each do |field|
+      record.headers.each do |field|
         # set all attributes        
         case
           when field  == 'Unnamed Field' # all images
             #Some code to encode images
-            record_builder.build(:image)
+            # record_builder.build(:image)
           else # default
-            attribute, value = field[:name].parameterize.underscore.to_sym, field.text.strip
+            attribute, value = field.parameterize.underscore.to_sym, record[field].strip
             
             record_builder[attribute] = value
         end
       end
       
+      # save
       record_builder.save!
     end
     
@@ -42,10 +41,6 @@ class FormConnectParser
   def filename
     @filename
   end
-  
-  # def unzip!
-  #   
-  # end
 end
 
 class FormConnectParseError < StandardError
