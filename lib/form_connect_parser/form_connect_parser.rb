@@ -12,6 +12,7 @@ class FormConnectParser
       unzip!(filename)
       @filename = Dir["#{tmp_path}*.csv"].first
     when '.csv'
+      @tmp_path = File.dirname(filename)
       @filename = filename
     else
       raise FormConnectParseError
@@ -26,29 +27,29 @@ class FormConnectParser
 
 
   def parse
-    CSV.new(open(filename), :headers => true).each do |record|
+    CSV.new(open(filename), :headers => true).map do |record|
       # build a new record
       record_builder = Record.new
 
-      record.headers.each do |field|
-
+      record.each do |header, field|
         # set all attributes
-        case
-          when field  == 'Unnamed Field' # all images
-            #Some code to encode images
-            image_filename = Rails.root + 'spec/support/record_parse' + record[field]
+        case header
+        when 'Unnamed Field' # all images
+          #Some code to encode images
+          image_filename = "#{tmp_path}/#{field}"
 
-            record_builder.images << upload_image(image_filename)
+          upload_image(image_filename, record_builder)
 
-          else # default
-            attribute, value = field.parameterize.underscore.to_sym, record[field].strip
+        else # default
+          attribute, value = header.parameterize.underscore.to_sym, field.strip
 
-            record_builder[attribute] = value
+          record_builder[attribute] = value
         end
       end
 
       # save
       record_builder.save!
+      record_builder
     end
 
   end
@@ -56,10 +57,10 @@ class FormConnectParser
 
   private
 
-  def upload_image(img_path)
-    if File.exists?(img_path) && File.size(img_path) ## non-zero file size
+  def upload_image(img_path, record_builder)
+    if File.size?(img_path) ## non-zero file size
       File.open(img_path) do |file|
-        Image.create(file: file)
+        record_builder.images.build(file: file)
       end
     end
   end

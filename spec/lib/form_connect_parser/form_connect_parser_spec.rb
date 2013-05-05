@@ -35,7 +35,7 @@ describe FormConnectParser do
     it "should parse a valid example record" do
       FormConnectParser.parse(example_file)
 
-      Record.count.should eq(15)
+      Record.count.should eq(1)
 
       #Let's check just the first record
       record = Record.first
@@ -104,9 +104,9 @@ describe FormConnectParser do
     end
 
     it "should import images correctly" do
-      FormConnectParser.parse(example_file)
+      records = FormConnectParser.parse(example_file)
 
-      Record.first.images.count.should be(4)
+      records.first.images.count.should == 4
     end
 
     it "should not error out on bad example" do
