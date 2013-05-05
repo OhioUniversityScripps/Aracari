@@ -4,38 +4,39 @@ describe FormConnectParser do
   before(:each) do
     FileUtils.rm('/tmp/test.csv') if File.exists?('/tmp/test.csv')
   end
-  
+
   let(:zip_file) { Rails.root + 'spec/support/record_parse/Analog Assessment (15 Records).zip'}
-  
+
   it "should expect files to exist" do
     expect { FormConnectParser.new('/tmp/test.csv') }.to raise_error FormConnectParseError
-  
+
     FileUtils.touch('/tmp/test.csv')
     expect { FormConnectParser.new('/tmp/test.csv') }.to_not raise_error FormConnectParseError
   end
-  
+
   it "should accept only *.csv or *.zip files" do
     file = Tempfile.new('test.bad')
     expect { FormConnectParser.new('/tmp/test.bad') }.to raise_error FormConnectParseError
   end
-  
-  pending "should unzip file, if a *.zip" do
-    File.exists?(zip_file).should be(true)
+
+  it "should unzip file, if a *.zip" do
+    parser = FormConnectParser.new(zip_file)
+    File.exists?(parser.filename).should be(true)
   end
-  
+
   describe "should parse data" do
     let(:example_file) { Rails.root + 'spec/support/record_parse/example.csv' }
     let(:bad_example_file) { Rails.root + 'spec/support/record_parse/example.csv' }
-    
+
     before(:each) do
       Record.destroy_all
     end
-    
+
     it "should parse a valid example record" do
       FormConnectParser.parse(example_file)
-      
+
       Record.count.should eq(15)
-      
+
       #Let's check just the first record
       record = Record.first
 
@@ -101,19 +102,19 @@ describe FormConnectParser do
       record.condition_notes.should eq("")
       record.notes.should eq("")
     end
-    
+
     it "should import images correctly" do
       FormConnectParser.parse(example_file)
-      
+
       Record.first.images.count.should be(4)
     end
-    
+
     it "should not error out on bad example" do
       expect { FormConnectParser.new(bad_example_file) }.to_not raise_error
-      
+
       Record.count.should be(0)
     end
-    
+
   end
 
 end

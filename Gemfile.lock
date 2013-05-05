@@ -47,8 +47,6 @@ GEM
       multi_json (~> 1.0)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
-    archive-zip (0.6.0)
-      io-like (>= 0.3.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bourbon (3.1.6)
@@ -122,7 +120,6 @@ GEM
     inherited_resources (1.4.0)
       has_scope (~> 0.5.0)
       responders (~> 0.9)
-    io-like (0.3.0)
     journey (1.0.4)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
@@ -245,7 +242,6 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
-  archive-zip
   capybara
   coffee-rails (~> 3.2.1)
   cucumber-rails

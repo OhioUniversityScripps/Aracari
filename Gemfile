@@ -8,15 +8,14 @@ gem 'paperclip', "~> 3.0"
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
-gem 'archive-zip'
 
 group :development do
   gem 'ruby_gntp'
-  
+
   gem 'guard'
   gem 'guard-rspec'
   gem 'rb-fsevent', :require => false
-  
+
   # gem 'pry'
   # gem 'pry-remote'
   gem 'pry-rails'
