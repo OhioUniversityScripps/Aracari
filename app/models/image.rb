@@ -3,7 +3,7 @@ class Image < ActiveRecord::Base
 
   belongs_to :record
 
-  has_attached_file :file, storage: :filesystem, path: "#{Rails.root}/public/uploads/:class/:id/:basename.:extension"
+  has_attached_file :file, storage: :filesystem
 
   validates_attachment_content_type :file, content_type: ['image/png', 'image/gif', 'image/jpeg']
   validates_attachment_presence :file, message: "must be attached"
