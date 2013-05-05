@@ -97,4 +97,15 @@ ActiveAdmin.register Record do
     f.actions
   end
   
+  # show do |record|
+  #   attributes_table do
+  #     row :title
+  #     row :images do
+  #       record.images.each do |image|
+  #         image_tag(image.url)
+  #       end
+  #     end
+  #   end
+  # end
+  
 end

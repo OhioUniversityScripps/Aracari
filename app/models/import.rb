@@ -9,4 +9,6 @@ class Import < ActiveRecord::Base
   
   scope :recent, lambda {|count| where("created_at < ?", Time.zone.now).limit(count) }
   
+  
+  # after_save { FormConnectParser.new(self.archive_file_name).parse! }
 end

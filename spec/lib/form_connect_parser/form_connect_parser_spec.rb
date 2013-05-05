@@ -5,6 +5,8 @@ describe FormConnectParser do
     FileUtils.rm('/tmp/test.csv') if File.exists?('/tmp/test.csv')
   end
   
+  let(:zip_file) { Rails.root + 'spec/support/record_parse/Analog Assessment (15 Records).zip'}
+  
   it "should expect files to exist" do
     expect { FormConnectParser.new('/tmp/test.csv') }.to raise_error FormConnectParseError
   
@@ -15,6 +17,10 @@ describe FormConnectParser do
   it "should accept only *.csv or *.zip files" do
     file = Tempfile.new('test.bad')
     expect { FormConnectParser.new('/tmp/test.bad') }.to raise_error FormConnectParseError
+  end
+  
+  pending "should unzip file, if a *.zip" do
+    File.exists?(zip_file).should be(true)
   end
   
   describe "should parse data" do
@@ -96,7 +102,7 @@ describe FormConnectParser do
       record.notes.should eq("")
     end
     
-    pending "should import images correctly" do
+    it "should import images correctly" do
       FormConnectParser.parse(example_file)
       
       Record.first.images.count.should be(4)
@@ -107,5 +113,7 @@ describe FormConnectParser do
       
       Record.count.should be(0)
     end
+    
   end
+
 end

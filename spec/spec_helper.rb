@@ -42,6 +42,7 @@ RSpec.configure do |config|
   
   include FactoryGirl::Syntax::Methods
   include Paperclip::Shoulda::Matchers
+  include ActionDispatch::TestProcess
   
   config.after(:all) do
     if Rails.env.test? 

@@ -8,7 +8,7 @@ gem 'paperclip', "~> 3.0"
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
-# gem 'rubyzip'
+gem 'archive-zip'
 
 group :development do
   gem 'ruby_gntp'
