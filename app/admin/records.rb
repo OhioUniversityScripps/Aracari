@@ -1,9 +1,11 @@
 ActiveAdmin.register Record do
 
   index do
+    column :title
+    column :creators
     column "Legacy Asset ID", :legacy_asset_id
     column :further_review
-    column :notes
+    
     default_actions
   end
 
@@ -98,15 +100,46 @@ ActiveAdmin.register Record do
   end
 
   show do |record|
-
     h3 record.title
-    record.images.each do |image|
-
-      div do
-        image_tag(image.file.url)
-      end
+    
+    panel "Content" do
+      attributes_table_for record, :legacy_asset_id, :title, :creators, :category, :content_description, :further_review, :collection_id, :shelf_code, :year, :month, :day, :generation, :unique_id
+    end
+    
+    panel "Characteristics" do
+      attributes_table_for record, :size, :media_type, :speed, :stock_manufacturer, :track_configuration, :stock_brand, :tape_thickness, :stock_formula, :tape_playback_direction, :asset_age, :tape_width, :known_running_time, :tape_noise_reduction
     end
 
+    panel "Reel Condition" do
+      #Column One
+      attributes_table_for record, :popped_strands, :stepped_pack, :flange_pack, :unsecured_tape, :heads_out, :vinegar_odor, :other_odor
+      
+      # Column Two
+      attributes_table_for record, :backing_loss, :binder_loss, :blocking, :brittleness, :breakage, :cinching, :cupping
+      
+      # Column Three
+      attributes_table_for record, :delamination, :edge_curling, :edge_damage, :stretching, :spoking, :windowing, :wrinkling
+      
+      # Column Four
+      attributes_table_for record, :dirt_dust, :fungus, :liquid, :pest, :slotted_hub, :splices
+      
+    end
+    
+    panel "Record/Cassette Condition" do
+      attributes_table_for record, :record_cassette_cracks, :record_cassette_delamination, :record_cassette_scratches, :record_cassette_surface_contamination, :record_cassette_warping
+    end
+    
+    panel "Notes" do
+      attributes_table_for record, :condition_notes, :notes
+    end
+    
+    panel "Images" do
+      record.images.each do |image|
+        div do
+          link_to(image_tag(image.file.url, height: 200), image.file.url).html_safe
+        end
+      end
+    end
   end
 
 end
