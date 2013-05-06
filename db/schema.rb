@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415221713) do
+ActiveRecord::Schema.define(:version => 20130506122245) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(:version => 20130415221713) do
     t.string   "archive_content_type"
     t.integer  "archive_file_size"
     t.datetime "archive_updated_at"
+    t.string   "assessors"
+    t.text     "notes"
   end
 
   create_table "records", :force => true do |t|

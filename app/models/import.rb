@@ -1,6 +1,6 @@
 class Import < ActiveRecord::Base
 
-  attr_accessible :archive
+  attr_accessible :archive, :assessors, :notes
 
   has_attached_file :archive, storage: :filesystem
 
