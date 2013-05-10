@@ -27,3 +27,4 @@ pickle-email-*.html
 capybara-*.html
 .rspec
 /public/assets/*
+.ruby-version
