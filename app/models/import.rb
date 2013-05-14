@@ -9,6 +9,8 @@ class Import < ActiveRecord::Base
 
   scope :recent, lambda {|count| where("created_at < ?", Time.zone.now).limit(count) }
 
-
-  after_create { FormConnectParser.new(self.archive.path).parse }
+  # Parse the form after save (but only on create)
+  # We should be able to use after_create but it will not work because of Paperclip's implimentation
+  # of it's attachment API happens in after_save (and we need the Paperclip after_save callback to be called)
+  after_save { FormConnectParser.parse(self.archive.path) if created_at_changed? }
 end
