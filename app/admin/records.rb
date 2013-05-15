@@ -142,4 +142,82 @@ ActiveAdmin.register Record do
     end
   end
 
+  ## CSV Customization
+  csv do
+    column :legacy_asset_id
+
+    column :title
+    column :creators
+    column :category
+    column :content_description
+    column :further_review
+
+    column :assessors
+    column("Collection Name") { |record| record.collection_id }
+    column :shelf_code
+    column :year
+    column :month
+    column :day
+    column :generation
+    column("Unique ID") { |record| record.unique_id }
+
+    column :size
+    column :media_type
+    column :speed
+    column :stock_manufacturer
+    column :track_configuration
+    column :stock_brand
+    column :tape_thickness
+    column :stock_formula
+    column :tape_playback_direction
+    column :asset_age
+    column :tape_width
+    column :known_running_time
+    column :tape_noise_reduction
+
+    # Column One
+    column :popped_strands
+    column :stepped_pack
+    column :flange_pack
+    column :unsecured_tape
+    column :heads_out
+    column :vinegar_odor
+    column :other_odor
+
+    # Column Two
+    column :backing_loss
+    column :binder_loss
+    column :blocking
+    column :brittleness
+    column :breakage
+    column :cinching
+    column :cupping
+
+    # Column Three
+    column :delamination
+    column :edge_curling
+    column :edge_damage
+    column :stretching
+    column :spoking
+    column :windowing
+    column :wrinkling
+
+    # Column Four
+    column :dirt_dust
+    column :fungus
+    column :liquid
+    column :pest
+    column :slotted_hub
+    column :splices
+
+    column("Record/Cassette Cracks") { |record| record.record_cassette_cracks }
+    column("Record/Cassette Delamination") { |record| record.record_cassette_delamination }
+    column("Record/Cassette Scratches") { |record| record.record_cassette_scratches }
+    column("Record/Cassette Surface Contamination") { |record| record.record_cassette_surface_contamination }
+    column("Record/Cassette Cassette Warping") { |record| record.record_cassette_warping }
+
+    column :condition_notes
+
+    column :notes
+  end
 end
