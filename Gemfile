@@ -6,6 +6,8 @@ gem 'jquery-rails'
 
 gem 'paperclip', "~> 3.0"
 
+gem 'has_barcode'
+
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
 gem 'thin'

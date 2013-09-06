@@ -6,4 +6,14 @@ class Record < ActiveRecord::Base
   scope :recent, lambda {|count| where("created_at < ?", Time.zone.now).limit(count) }
 
   # validate :unique_id, uniqueness: { scope: :assessors }
+
+  # Generate barcode that has value of collection_id-id
+  # (e.g. "cultural_center-511")
+  include HasBarcode
+  has_barcode :barcode,
+    :outputter => :svg,
+    :type => :code_93,
+    :value => Proc.new { |r| "#{r.collection_id.parameterize.underscore}-#{r.id}" }
+
+
 end

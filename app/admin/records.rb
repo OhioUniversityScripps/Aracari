@@ -102,6 +102,14 @@ ActiveAdmin.register Record do
   show do |record|
     h3 record.title
     
+    panel "Barcode" do
+      attributes_table_for record do
+        row :barcode do
+          record.barcode_data.html_safe
+        end
+      end
+    end
+
     panel "Content" do
       attributes_table_for record, :legacy_asset_id, :title, :creators, :category, :content_description, :further_review, :collection_id, :shelf_code, :year, :month, :day, :generation, :unique_id
     end
