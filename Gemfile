@@ -14,6 +14,8 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
 gem 'thin'
 
+gem 'prettyphoto-rails'
+
 group :development do
   gem 'ruby_gntp'
 
