@@ -8,6 +8,8 @@ gem 'paperclip', "~> 3.0"
 
 gem 'has_barcode'
 
+gem 'jiffy_enums'
+
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
 gem 'thin'

@@ -27,6 +27,9 @@ ActiveAdmin.register Record do
       f.input :day
       f.input :generation
       f.input :unique_id, label: "Unique ID"
+      
+      f.input :midterm_storage_location, label: "Midterm Storage Location",
+          as: :select, collection: options_for_select(StorageLocation.map {|loc| [loc.value, loc.key]}, selected: f.object.midterm_storage_location)
     end
 
     f.inputs "Characteristics" do
@@ -111,7 +114,7 @@ ActiveAdmin.register Record do
     end
 
     panel "Content" do
-      attributes_table_for record, :legacy_asset_id, :title, :creators, :category, :content_description, :further_review, :collection_id, :shelf_code, :year, :month, :day, :generation, :unique_id
+      attributes_table_for record, :legacy_asset_id, :title, :creators, :category, :content_description, :further_review, :collection_id, :shelf_code, :year, :month, :day, :generation, :unique_id, :midterm_storage_location_value
     end
     
     panel "Characteristics" do
