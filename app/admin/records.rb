@@ -147,7 +147,7 @@ ActiveAdmin.register Record do
     panel "Images" do
       record.images.each do |image|
         div do
-          link_to(image_tag(image.file.url(:original, timestamp: false), width: '157px', height: '210px'), image.file.url(:original, timestamp: false), rel: "prettyPhoto[pp_gal]").html_safe
+          link_to(image_tag(image.file.url, width: '157px', height: '210px'), image.file.url, rel: "gallery", data: {colorbox: true, colorbox_width: '500px', colorbox_static: true}).html_safe
         end
       end
     end
